@@ -1,0 +1,24 @@
+﻿<Window x:Class="WPF_ProdejAut.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Prodaná auta" Height="600" Width="550">
+    <Grid>
+        <StackPanel Orientation="Vertical" Margin="10">
+            <!-- Tlačítko pro výběr XML souboru -->
+            <Button Content="Načíst XML soubor" Click="BtnNactiXML_Click" Width="200" Height="30" Margin="0,0,0,10"/>
+
+            <!-- Tabulka s původními daty -->
+            <TextBlock Text="Seznam prodaných aut" FontWeight="Bold"/>
+            <DataGrid Name="dataGridAuta" AutoGenerateColumns="True" Height="200" Margin="0,0,0,10"/>
+
+            <!-- Tabulka s výsledky prodeje o víkendu -->
+            <TextBlock Text="Součet prodejů o víkendu" FontWeight="Bold"/>
+            <DataGrid Name="dataGridVikend" Height="250" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Název modelu / Cena bez DPH" Binding="{Binding Model}" Width="250"/>
+                    <DataGridTextColumn Header="Cena s DPH" Binding="{Binding CenaSDPH, StringFormat=N2}" Width="200"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</Window>
